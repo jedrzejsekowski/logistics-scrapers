@@ -4,8 +4,8 @@ from datetime import datetime
 from ..items import TimocomItem
 from scrapy.loader import ItemLoader
 
-origins = ['PL', 'NL']
-destinations = ['DE', 'FR', 'IT']  # Example with multiple destinations
+origins = ['AL','AM','AT','AZ','BA','BE','BG','BY','CH','CY','CZ','DE','DK','EE','ES','EU','FI','FR','GB','GE','GR','HR','HU','IE','IS','IT','KZ','LI','LT','LU','LV','MC','MD','ME','MK','MT','NL','NO','PL','PT','RO','RS','RU','SE','SI','SK','TR','UA']
+destinations = ['AL','AM','AT','AZ','BA','BE','BG','BY','CH','CY','CZ','DE','DK','EE','ES','EU','FI','FR','GB','GE','GR','HR','HU','IE','IS','IT','KZ','LI','LT','LU','LV','MC','MD','ME','MK','MT','NL','NO','PL','PT','RO','RS','RU','SE','SI','SK','TR','UA']
 
 class FreightsSpider(scrapy.Spider):
     name = "freights"

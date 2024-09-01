@@ -1,6 +1,8 @@
 import json
 import scrapy
 from datetime import datetime
+from ..items import TimocomItem
+from scrapy.loader import ItemLoader
 
 origins = ['PL', 'NL']
 destinations = ['DE', 'FR', 'IT']  # Example with multiple destinations
@@ -27,11 +29,11 @@ class FreightsSpider(scrapy.Spider):
 
     def parse(self, response):
         data = json.loads(response.text)
+        item = TimocomItem()
 
-        # Extract values from the JSON
-        datanow = data['DATANOW']
-        last_update = datetime.fromtimestamp(data['LASTUPDATE'])
-        destination = response.meta['destination']
-        origin = response.meta['origin']
+        item["freights"] = data['DATANOW']
+        item["origin"] = response.meta['origin']
+        item["destination"] = response.meta['destination']
+        item["last_updated"] = str(datetime.fromtimestamp(data['LASTUPDATE']))
 
-        print("Origin: ",origin," Destination: ", destination," Freights: ", datanow," Last update: ",last_update)
+        return item

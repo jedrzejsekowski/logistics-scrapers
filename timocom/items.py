@@ -7,6 +7,7 @@ import scrapy
 
 
 class TimocomItem(scrapy.Item):
-    # define the fields for your item here like:
-    # name = scrapy.Field()
-    pass
+    freights = scrapy.Field()
+    origin = scrapy.Field()
+    destination = scrapy.Field()
+    last_updated = scrapy.Field()
